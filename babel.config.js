@@ -23,7 +23,22 @@ module.exports = (api) => {
     ],
   ];
 
-  const plugins = [];
+  /** ここから変更 **/
+  const plugins = [
+    [
+      'babel-plugin-styled-components',
+      isProduction
+        ? {
+          fileName: false,
+          displayName: false,
+          pure: true,
+        }
+        : {
+          minify: false,
+        },
+    ],
+  ];
+  /** ここまで **/
 
   return {
     presets,
